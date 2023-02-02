@@ -135,7 +135,7 @@ def chatbot_msg(update: Update, context: CallbackContext):
         bot.send_chat_action(chat_id, action="typing")
         chatbot = requests.get('https://devman.kuki.ai/talk?botkey=' + api + '&input=' + Message)
         Chat = json.loads(chatbot.text)
-        Chat = Chat['reply']
+        Chat = Chat['responses']
         sleep(0.3)
         message.reply_text(Chat, timeout=60)
 
